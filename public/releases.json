@@ -1,0 +1,112 @@
+[
+  {
+    "id": "openai-gpt-6-astra",
+    "modelName": "GPT-6 Astra",
+    "company": "OpenAI",
+    "releasedAt": "2026-09-03T16:00:00Z",
+    "category": "frontier",
+    "summary": "OpenAI's broadly deployed GPT-6 Astra release, described as its most capable model and a major step up in cyber, software engineering, browsing, science and professional work.",
+    "sourceUrl": "https://openai.com/index/safety-overview-gpt-6-astra/",
+    "sourceType": "official-blog",
+    "status": "verified"
+  },
+  {
+    "id": "anthropic-claude-fable-mythos-5-1",
+    "modelName": "Claude Fable 5.1 and Claude Mythos 5.1",
+    "company": "Anthropic",
+    "releasedAt": "2026-09-01T16:00:00Z",
+    "category": "coding",
+    "summary": "Anthropic's September 2026 Claude Fable 5.1 and Mythos 5.1 release for coding, knowledge work and scientific research workflows.",
+    "sourceUrl": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+    "sourceType": "official-blog",
+    "status": "verified"
+  },
+  {
+    "id": "anthropic-claude-opus-4-8",
+    "modelName": "Claude Opus 4.8",
+    "company": "Anthropic",
+    "releasedAt": "2026-05-28T16:00:00Z",
+    "category": "frontier",
+    "summary": "Upgrade to Claude Opus with improved coding, agentic work, reasoning and practical knowledge tasks.",
+    "sourceUrl": "https://www.anthropic.com/news/claude-opus-4-8",
+    "sourceType": "official-blog",
+    "status": "verified"
+  },
+  {
+    "id": "xai-grok-4-1",
+    "modelName": "Grok 4.1",
+    "company": "xAI",
+    "releasedAt": "2025-11-17T16:00:00Z",
+    "category": "frontier",
+    "summary": "A Grok update focused on real-world usability, preference quality and state-of-the-art general capability.",
+    "sourceUrl": "https://x.ai/news/grok-4-1",
+    "sourceType": "official-blog",
+    "status": "verified"
+  },
+  {
+    "id": "xai-grok-4-fast",
+    "modelName": "Grok 4 Fast",
+    "company": "xAI",
+    "releasedAt": "2025-09-19T16:00:00Z",
+    "category": "reasoning",
+    "summary": "Cost-efficient reasoning model with tool use, web and X search capabilities, and a 2M token context window.",
+    "sourceUrl": "https://x.ai/news/grok-4-fast",
+    "sourceType": "official-blog",
+    "status": "verified"
+  },
+  {
+    "id": "openai-gpt-5",
+    "modelName": "GPT-5",
+    "company": "OpenAI",
+    "releasedAt": "2025-08-07T16:00:00Z",
+    "category": "frontier",
+    "summary": "Unified frontier model release spanning reasoning, coding, writing, visual perception and more.",
+    "sourceUrl": "https://openai.com/index/introducing-gpt-5/",
+    "sourceType": "official-blog",
+    "status": "verified"
+  },
+  {
+    "id": "xai-grok-4",
+    "modelName": "Grok 4",
+    "company": "xAI",
+    "releasedAt": "2025-07-09T16:00:00Z",
+    "category": "frontier",
+    "summary": "Major Grok release with native tool use, real-time search integration and a heavier reasoning tier.",
+    "sourceUrl": "https://x.ai/news/grok-4",
+    "sourceType": "official-blog",
+    "status": "verified"
+  },
+  {
+    "id": "anthropic-claude-4",
+    "modelName": "Claude Opus 4 and Claude Sonnet 4",
+    "company": "Anthropic",
+    "releasedAt": "2025-05-22T16:00:00Z",
+    "category": "coding",
+    "summary": "Next-generation Claude models focused on coding, advanced reasoning and AI agents.",
+    "sourceUrl": "https://www.anthropic.com/news/claude-4",
+    "sourceType": "official-blog",
+    "status": "verified"
+  },
+  {
+    "id": "google-gemini-2-5",
+    "modelName": "Gemini 2.5 Pro Experimental",
+    "company": "Google DeepMind",
+    "releasedAt": "2025-03-25T16:00:00Z",
+    "category": "reasoning",
+    "summary": "Thinking model release designed for complex reasoning, coding and multimodal tasks.",
+    "sourceUrl": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-model-thinking-updates-march-2025/",
+    "sourceType": "official-blog",
+    "status": "verified"
+  },
+  {
+    "id": "meta-llama-4",
+    "modelName": "Llama 4 Scout and Llama 4 Maverick",
+    "company": "Meta",
+    "releasedAt": "2025-04-05T16:00:00Z",
+    "category": "open-weight",
+    "summary": "First models in the Llama 4 herd, introducing natively multimodal open-weight models.",
+    "sourceUrl": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+    "sourceType": "official-blog",
+    "status": "verified"
+  }
+]
