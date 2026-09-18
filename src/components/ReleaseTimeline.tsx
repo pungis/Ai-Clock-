@@ -33,6 +33,7 @@ export function ReleaseTimeline({ releases }: ReleaseTimelineProps) {
     }
 
     const radioScale = radioScaleElement;
+    const prefersNativeTouchScroll = window.matchMedia("(pointer: coarse)").matches;
     smoothScrollRef.current.targetLeft = timeline.scrollLeft;
     smoothScrollRef.current.currentLeft = timeline.scrollLeft;
 
@@ -87,6 +88,18 @@ export function ReleaseTimeline({ releases }: ReleaseTimelineProps) {
       }
     }
 
+    function syncAmbientScale() {
+      const timeline = timelineRef.current;
+
+      if (!timeline) {
+        return;
+      }
+
+      smoothScrollRef.current.currentLeft = timeline.scrollLeft;
+      smoothScrollRef.current.targetLeft = timeline.scrollLeft;
+      updateAmbientScale(timeline.scrollLeft);
+    }
+
     function handleWheel(event: WheelEvent) {
       const timeline = timelineRef.current;
 
@@ -110,7 +123,7 @@ export function ReleaseTimeline({ releases }: ReleaseTimelineProps) {
     function handlePointerDown(event: PointerEvent) {
       const timeline = timelineRef.current;
 
-      if (!timeline) {
+      if (!timeline || prefersNativeTouchScroll) {
         return;
       }
 
@@ -145,7 +158,7 @@ export function ReleaseTimeline({ releases }: ReleaseTimelineProps) {
       const timeline = timelineRef.current;
       const dragState = dragStateRef.current;
 
-      if (!timeline || !dragState.isDragging) {
+      if (!timeline || !dragState.isDragging || prefersNativeTouchScroll) {
         return;
       }
 
@@ -174,6 +187,10 @@ export function ReleaseTimeline({ releases }: ReleaseTimelineProps) {
       const timeline = timelineRef.current;
       const dragState = dragStateRef.current;
 
+      if (prefersNativeTouchScroll) {
+        return;
+      }
+
       dragStateRef.current.isDragging = false;
       document.body.classList.remove("is-tuning");
       radioScale.classList.remove("radio-scale--dragging");
@@ -186,6 +203,7 @@ export function ReleaseTimeline({ releases }: ReleaseTimelineProps) {
 
     updateAmbientScale(timeline.scrollLeft);
 
+    timeline.addEventListener("scroll", syncAmbientScale, { passive: true });
     timeline.addEventListener("wheel", handleWheel, { passive: false });
     timeline.addEventListener("pointerdown", handlePointerDown);
     timeline.addEventListener("pointermove", handlePointerMove);
@@ -193,6 +211,7 @@ export function ReleaseTimeline({ releases }: ReleaseTimelineProps) {
     timeline.addEventListener("pointercancel", stopDragging);
 
     return () => {
+      timeline.removeEventListener("scroll", syncAmbientScale);
       timeline.removeEventListener("wheel", handleWheel);
       timeline.removeEventListener("pointerdown", handlePointerDown);
       timeline.removeEventListener("pointermove", handlePointerMove);
