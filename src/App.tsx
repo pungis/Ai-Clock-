@@ -105,10 +105,13 @@ function App() {
         <section className="hero" aria-labelledby="page-title">
           <div className="hero__copy">
             <p className="eyebrow">AI Clock</p>
-            <h1 id="page-title">Model release watch desk.</h1>
+            <h1 id="page-title">
+              <span>Modern release</span>
+              <span>watch</span>
+            </h1>
             <p className="hero__intro">
-              A retro art deco watchtower for major AI model updates, counting
-              the quiet hours since the last verified release.
+              Tune the dial. Track the drops. See how long the AI hype machine
+              can keep its mouth shut.
             </p>
             <LatestRelease release={latestRelease} />
           </div>
@@ -123,13 +126,6 @@ function App() {
           <span>Created by elmo</span>
           <a href="https://github.com/pungis" target="_blank" rel="noreferrer">
             Contact: GitHub @pungis
-          </a>
-          <a
-            href="https://github.com/pungis/Ai-Clock-"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Repository
           </a>
         </footer>
       </main>
