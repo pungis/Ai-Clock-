@@ -662,7 +662,7 @@ h1 span {
   border-bottom: 1px solid rgba(199, 164, 93, 0.12);
   background: rgba(9, 9, 8, 0.18);
   cursor: grab;
-  touch-action: pan-x;
+  touch-action: pan-x pan-y;
   user-select: none;
 }
 
@@ -696,12 +696,16 @@ h1 span {
   grid-auto-flow: column;
   gap: 34px;
   overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
-  scroll-snap-type: none;
+  scroll-padding-inline: 8px;
+  scroll-snap-type: x proximity;
   margin: 0;
   padding: 0 8px 18px;
   list-style: none;
   scrollbar-width: none;
+  touch-action: pan-x pan-y;
 }
 
 .timeline-list::-webkit-scrollbar {
@@ -964,12 +968,19 @@ h1 span {
   }
 
   .timeline-list {
-    grid-auto-columns: minmax(250px, 84vw);
-    gap: 14px;
+    grid-auto-columns: calc(100vw - 56px);
+    gap: 16px;
+    margin-inline: -10px;
+    padding: 0 10px 22px;
+    scroll-padding-inline: 10px;
+    scroll-snap-type: x mandatory;
   }
 
   .timeline-item {
     gap: 10px;
+    min-height: auto;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
   .timeline-item__marker {
@@ -983,5 +994,9 @@ h1 span {
 
   .timeline-item__header span {
     white-space: normal;
+  }
+
+  .timeline-item article {
+    min-height: 0;
   }
 }

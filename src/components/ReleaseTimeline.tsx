@@ -114,6 +114,10 @@ export function ReleaseTimeline({ releases }: ReleaseTimelineProps) {
         return;
       }
 
+      if (!timeline.contains(event.target as Node)) {
+        return;
+      }
+
       dragStateRef.current = {
         isDragging: true,
         hasMoved: false,
@@ -134,6 +138,7 @@ export function ReleaseTimeline({ releases }: ReleaseTimelineProps) {
 
       document.body.classList.add("is-tuning");
       radioScale.classList.add("radio-scale--dragging");
+      timeline.setPointerCapture(event.pointerId);
     }
 
     function handlePointerMove(event: PointerEvent) {
@@ -172,6 +177,7 @@ export function ReleaseTimeline({ releases }: ReleaseTimelineProps) {
       dragStateRef.current.isDragging = false;
       document.body.classList.remove("is-tuning");
       radioScale.classList.remove("radio-scale--dragging");
+      timeline?.releasePointerCapture(event.pointerId);
 
       if (timeline && dragState.hasMoved) {
         scrollToTarget(timeline.scrollLeft - dragState.velocity * 620);
@@ -180,18 +186,18 @@ export function ReleaseTimeline({ releases }: ReleaseTimelineProps) {
 
     updateAmbientScale(timeline.scrollLeft);
 
-    window.addEventListener("wheel", handleWheel, { passive: false });
-    window.addEventListener("pointerdown", handlePointerDown);
-    window.addEventListener("pointermove", handlePointerMove);
-    window.addEventListener("pointerup", stopDragging);
-    window.addEventListener("pointercancel", stopDragging);
+    timeline.addEventListener("wheel", handleWheel, { passive: false });
+    timeline.addEventListener("pointerdown", handlePointerDown);
+    timeline.addEventListener("pointermove", handlePointerMove);
+    timeline.addEventListener("pointerup", stopDragging);
+    timeline.addEventListener("pointercancel", stopDragging);
 
     return () => {
-      window.removeEventListener("wheel", handleWheel);
-      window.removeEventListener("pointerdown", handlePointerDown);
-      window.removeEventListener("pointermove", handlePointerMove);
-      window.removeEventListener("pointerup", stopDragging);
-      window.removeEventListener("pointercancel", stopDragging);
+      timeline.removeEventListener("wheel", handleWheel);
+      timeline.removeEventListener("pointerdown", handlePointerDown);
+      timeline.removeEventListener("pointermove", handlePointerMove);
+      timeline.removeEventListener("pointerup", stopDragging);
+      timeline.removeEventListener("pointercancel", stopDragging);
       document.body.classList.remove("is-tuning");
 
       if (smoothScrollRef.current.animationFrameId !== 0) {
